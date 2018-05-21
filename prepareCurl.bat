@@ -206,7 +206,7 @@ CALL %msVS_Path%\VC\Auxiliary\Build\vcvarsall.bat %currentBuildCompilerOption%
 IF !ERRORLEVEL! EQU 1 CALL:error 1 "Could not setup %~1 compiler"
 
 REM vcvarsall.bat moves to users folder so cs is necessary
-CD !folder!
+CD /D !folder!
 IF %logLevel% GEQ %trace% (
 	nmake /f Makefile.vc mode=dll VC=%msVS_Version% DEBUG=yes MACHINE=%~1
 ) ELSE (
